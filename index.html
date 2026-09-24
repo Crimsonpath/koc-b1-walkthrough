@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://share.streampixel.io; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#111214">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+  <meta name="description" content="Live 3D walkthrough of the B1 Ground Floor, revision R220. A real-time model streamed from the cloud, with nothing to install. For internal review.">
+  <title>B1 Ground Floor — Live 3D Walkthrough</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to walkthrough</a>
+
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/><path d="M12 14.2v2.3"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.2v13.6L19 12z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="10.5" rx="1.5"/><path d="M2 19h20"/></symbol>
+    <symbol id="i-rotate" viewBox="0 0 24 24"><rect x="2.5" y="12" width="13" height="8.5" rx="1.8"/><path d="M11 3.5a9.5 9.5 0 0 1 9.5 9.5"/><path d="M17.8 10.8l2.7 2.7 2.6-2.7"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-signal" viewBox="0 0 24 24"><path d="M2.5 9.2a14 14 0 0 1 19 0"/><path d="M5.6 12.6a9.5 9.5 0 0 1 12.8 0"/><path d="M8.7 16a5 5 0 0 1 6.6 0"/><circle cx="12" cy="19.2" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <a class="brand" href="./"><strong>KOC</strong> <span>Building B1</span></a>
+    <span class="header-label">Live walkthrough</span>
+  </header>
+
+  <main id="main">
+    <p class="rotate-hint" role="note">
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-rotate"/></svg>
+      <span>Turn your phone sideways for the best view</span>
+    </p>
+
+    <section class="intro" id="intro" aria-labelledby="title">
+      <div class="intro-copy">
+        <p class="eyebrow">B1 GROUND FLOOR · LIVE 3D</p>
+        <h1 id="title">B1 Ground Floor<span class="visually-hidden"> — </span> <em>Live 3D Walkthrough</em></h1>
+        <p class="meta">Revision R220 · FINAL layout 22-09-2026</p>
+        <p class="summary">A real-time, walkable model of the ground floor, streamed from the cloud to your browser. Nothing to install: open it and walk through the space.</p>
+        <div class="actions">
+          <a class="primary" href="https://share.streampixel.io/6ab533a558d2526d91a710bb" target="_blank" rel="noopener noreferrer" data-open-stream>Enter walkthrough <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
+          <p class="password-note">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>
+            <span>You'll be asked for the password you received separately.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="stage-wrap" id="stage-wrap">
+        <!-- Controls come first in the tab order (shown below the view via CSS order),
+             so keyboard users can reach End session before focus enters the stream. -->
+        <div class="stage-tools" id="stage-tools" hidden>
+          <p class="stage-status" id="stage-status" role="status">Connecting…</p>
+          <div class="stage-buttons">
+            <button type="button" class="button" id="stage-fullscreen">
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-expand"/></svg>Full screen
+            </button>
+            <a class="button" href="https://share.streampixel.io/6ab533a558d2526d91a710bb" target="_blank" rel="noopener noreferrer" data-open-stream>Open in new tab <span aria-hidden="true">↗</span><span class="visually-hidden"> (ends the session on this page)</span></a>
+            <button type="button" class="button" id="stage-end">
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-stop"/></svg>End session
+            </button>
+          </div>
+        </div>
+        <div class="stage" id="stage">
+          <a class="stage-start" id="stage-start" href="https://share.streampixel.io/6ab533a558d2526d91a710bb" target="_blank" rel="noopener noreferrer">
+            <span class="stage-kicker" aria-hidden="true">Walk it on this page</span>
+            <span class="stage-play" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-play"/></svg></span>
+            <span class="stage-title">Start here</span>
+            <span class="stage-sub">Loads the live walkthrough in this window. The cloud session starts only when you click.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <dl class="facts">
+      <div><dt>Model</dt><dd>Real-time 3D</dd></div>
+      <div><dt>Delivery</dt><dd>Cloud stream</dd></div>
+      <div><dt>Works on</dt><dd>Phone, tablet, laptop</dd></div>
+      <div><dt>To install</dt><dd>Nothing</dd></div>
+    </dl>
+
+    <section class="guide" aria-labelledby="how-title">
+      <h2 id="how-title">How to walk</h2>
+      <div class="guide-grid">
+        <article class="guide-card" aria-labelledby="phone-title">
+          <div class="guide-head">
+            <span class="guide-icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-phone"/></svg></span>
+            <div>
+              <h3 id="phone-title">On a phone</h3>
+              <p>iPhone or Android · opens in its own tab</p>
+            </div>
+          </div>
+          <ol class="steps" role="list">
+            <li><span class="step-do">Hold it sideways</span><span class="visually-hidden"> — </span><span class="step-what">For the widest view</span></li>
+            <li><span class="step-do">Tap to start</span><span class="visually-hidden"> — </span><span class="step-what">Then enter the password</span></li>
+            <li><span class="step-do">Left stick</span><span class="visually-hidden"> — </span><span class="step-what">Walk</span></li>
+            <li><span class="step-do">Right stick</span><span class="visually-hidden"> — </span><span class="step-what">Look around</span></li>
+          </ol>
+        </article>
+
+        <article class="guide-card" aria-labelledby="laptop-title">
+          <div class="guide-head">
+            <span class="guide-icon" aria-hidden="true"><svg class="icon" focusable="false"><use href="#i-laptop"/></svg></span>
+            <div>
+              <h3 id="laptop-title">On a laptop</h3>
+              <p>Windows or Mac · mouse or trackpad</p>
+            </div>
+          </div>
+          <ol class="steps" role="list">
+            <li><span class="step-do">Click the view</span><span class="visually-hidden"> — </span><span class="step-what">So it takes your keys</span></li>
+            <li><span class="step-do"><span class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></span><span class="visually-hidden"> — </span><span class="step-what">Walk</span></li>
+            <li><span class="step-do">Drag</span><span class="visually-hidden"> — </span><span class="step-what">Look around</span></li>
+          </ol>
+          <p class="guide-foot">Press <kbd>Esc</kbd> to leave full screen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="notes-section" aria-labelledby="notes-title">
+      <h2 id="notes-title">Good to know</h2>
+      <ul class="notes" role="list">
+        <li>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>
+          <p><strong>Password</strong> You'll be asked for the password you received separately.</p>
+        </li>
+        <li>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>
+          <p><strong>iPhone</strong> iPhone doesn't allow full screen inside a web page, so the walkthrough opens in its own tab, where it has the whole window.</p>
+        </li>
+        <li>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>
+          <p><strong>Idle sessions</strong> The session closes after a while without movement, or when you switch apps. Open the walkthrough again to reconnect.</p>
+        </li>
+        <li>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-signal"/></svg>
+          <p><strong>Connection</strong> Works best on Wi-Fi or a strong 4G/5G signal.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="credit"><strong>Prepared by Faisal AL-Saeed</strong> <span>KOC · Contracts and Commercial Support Group</span></p>
+    <p class="confidential"><strong>Confidential — for internal review</strong> <span>September 2026</span></p>
+  </footer>
+</body>
+</html>
